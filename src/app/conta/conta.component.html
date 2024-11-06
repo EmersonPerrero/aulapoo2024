@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta Bancária - Opções</title>
+    <link rel="stylesheet" href="conta.component.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo do PooBank" class="logo">
+        <h1>Bem-vindo à sua Conta Bancária</h1>
+    </header>
+
+    <div class="menu">
+        <button onclick="mostrarSecao('extrato')">Saldo disponível</button>
+        <button onclick="mostrarSecao('fazer-pix')">Fazer um PIX</button>
+        <button onclick="mostrarSecao('historico')">Histórico de Transações</button>
+    </div>
+
+    <section id="extrato" class="conteudo">
+        <h2>Saldo disponível</h2>
+        <p>Seu saldo atual é de R$ 1.500,00.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01/10/2024</td>
+                    <td>Compra Supermercado</td>
+                    <td>- R$ 250,00</td>
+                </tr>
+                <tr>
+                    <td>29/09/2024</td>
+                    <td>Depósito</td>
+                    <td>+ R$ 1.000,00</td>
+                </tr>
+                <tr>
+                    <td>25/09/2024</td>
+                    <td>Conta de Luz</td>
+                    <td>- R$ 200,00</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="fazer-pix" class="conteudo">
+        <h2>Fazer um PIX</h2>
+        <form action="#" method="POST">
+            <label for="chave-pix">Chave PIX:</label>
+            <input type="text" id="chave-pix" name="chave-pix" required>
+
+            <label for="valor">Valor:</label>
+            <input type="number" id="valor" name="valor" step="0.01" required>
+
+            <button type="submit">Fazer um PIX</button>
+        </form>
+    </section>
+
+    <section id="historico" class="conteudo">
+        <h2>Histórico de Transações</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Recebedor</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>30/09/2024</td>
+                    <td>João Silva</td>
+                    <td>R$ 300,00</td>
+                </tr>
+                <tr>
+                    <td>28/09/2024</td>
+                    <td>Maria Santos</td>
+                    <td>R$ 150,00</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <form action="/investimento">
+            <button type="submit" class="conteudo">Investimentos</button>
+    </form>
+
+    <footer>
+        <p>&copy; Poobank</p>
+    </footer>
+
+    <script>
+        function mostrarSecao(secaoId) {
+            
+            const secoes = document.querySelectorAll('.conteudo');
+            secoes.forEach(secao => {
+                secao.style.display = 'none';
+            });
+
+            
+            const secaoAtiva = document.getElementById(secaoId);
+            secaoAtiva.style.display = 'block';
+        }
+
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            mostrarSecao('extrato');
+        });
+    </script>
+</body>
+</html>

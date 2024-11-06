@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Investimentos</h1>
+    <form (ngSubmit)="calcularRendimento()" #simuladorForm="ngForm">
+      <div>
+        <label for="aporte">Aporte Mensal (R$):</label>
+        <input type="number" id="aporte" required [(ngModel)]="aporte" name="aporte" />
+      </div>
+      <div>
+        <label for="dataResgate">Data Estimada de Resgate:</label>
+        <input type="date" id="dataResgate" required [(ngModel)]="dataResgate" name="dataResgate" />
+      </div>
+      <button type="submit">Calcular</button>
+    </form>
+    <div *ngIf="resultado">
+      <h2>Resultado do Investimento</h2>
+      <p>Valor Total ao final do período: R$ {{ resultado }}</p>
+    </div>
+  </div>
+  
